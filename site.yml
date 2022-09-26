@@ -2,9 +2,15 @@
 
 - hosts: all
   become: true
-  tasks:
-    - name: install apace2 package
-      package:
-        name: apache2
-        state: latest
-        update_cache: yes
+  pre_tasks:
+    - name: update repo
+      tags: always
+      apt:
+        update_cache: true
+
+
+- hosts: all
+  become: true
+  roles:
+    - base
+
