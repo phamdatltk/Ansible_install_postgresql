@@ -1,0 +1,14 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+    - name: update_vm
+      apt:
+        update_cache=true
+        
+    - name: remove apace2 package
+      apt:
+        name: apache2
+        state: absent
+
