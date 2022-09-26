@@ -1,5 +1,5 @@
 - name: install apache2
   become: true
   apt:
-    name: apache2
+    name: "{{ apache_package }}"
     
