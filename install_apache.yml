@@ -3,12 +3,9 @@
 - hosts: all
   become: true
   tasks:
-    - name: update_vm
-      apt:
-        update_cache=true
-        
     - name: install apace2 package
-      apt:
-        name: apache2
+      package:
+        name: apache2 
         state: latest
+        update_cache: yes
 
